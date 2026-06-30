@@ -63,6 +63,7 @@ AsapUI:AddButton(HomeTab, "Hello World", function()
 end)
 ```
 
+## CODE & SNIPPET EXAMPLES BELOW TO START MAKING UI'S WITH ASAP UI
 
 ## 1. Simple Window Creation
 Create a standard window instance with custom title formatting:
