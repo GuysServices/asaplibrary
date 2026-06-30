@@ -16,9 +16,12 @@
 - [Key Features](#-key-features)
 - [Visual Style Guide](#-visual-style-guide)
 - [Quick Start](#-quick-start)
+- [Code Examples & Snippets](#-code-examples--snippets)
+  - [1. Simple Window Creation](#1-simple-window-creation)
+  - [2. Multi-Tab Navigation](#2-multi-tab-navigation)
+  - [3. Action Callbacks & Scripts](#3-action-callbacks--scripts)
+  - [4. Graceful Cleanup (Self Destruct)](#4-graceful-cleanup-self-destruct)
 - [API Documentation](#-api-documentation)
-  - [Window Methods](#window-methods)
-  - [Tab Methods](#tab-methods)
 - [Configuration & Customization](#-configuration--customization)
 - [License](#-license)
 
@@ -51,21 +54,10 @@
 Paste this bootstrapper into your execution console to load your menu dynamically:
 
 ```lua
--- 1. Load the UI Library
 local AsapUI = loadstring(game:HttpGet("https://gist.githubusercontent.com/GuysServices/55a3e3913f2eaae6b96563410d1c7652/raw/AsapUI.lua"))()
-
--- 2. Initialize a Window
 local Window = AsapUI.new("ASAP MENU")
 
--- 3. Create Navigation Tabs
 local HomeTab = Window:CreateTab("Home")
-local UtilityTab = Window:CreateTab("Utility")
-
--- 4. Add Interactive Buttons
 AsapUI:AddButton(HomeTab, "Hello World", function()
     print("Welcome to AsapUI!")
-end)
-
-AsapUI:AddButton(UtilityTab, "Close UI", function()
-    Window.ScreenGui:Destroy()
 end)
