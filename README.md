@@ -83,3 +83,28 @@ local MovementPage = MyWindow:CreateTab("Movement")
 local VisualsPage = MyWindow:CreateTab("Visuals")
 ```
 -- The UI will automatically register tab switching animations on click
+
+## 3. Action Callbacks & Scripts
+-- Connect functions directly to buttons to trigger game actions on click:
+```lua
+local CombatPage = MyWindow:CreateTab("Combat")
+
+-- Button with character manipulation logic
+MyWindow:AddButton(CombatPage, "Increase WalkSpeed", function()
+    local player = game:GetService("Players").LocalPlayer
+    if player and player.Character and player.Character:FindFirstChildOfClass("Humanoid") then
+        player.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = 50
+    end
+end)
+```
+
+## 4. Graceful Cleanup (Self Destruct)
+-- Provide a button to safely destroy the GUI elements and clear screen memory:
+```lua
+local SettingsPage = MyWindow:CreateTab("Settings")
+
+-- Remove the GUI container completely
+MyWindow:AddButton(SettingsPage, "Unload UI", function()
+    MyWindow.ScreenGui:Destroy()
+end)
+```
