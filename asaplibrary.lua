@@ -52,8 +52,6 @@ local function makeShadow(parent)
 end
 
 local function makeDraggable(frame, dragHandle)
-    local UserInputService = game:GetService("UserInputService")
-
     local dragging = false
     local dragStart
     local startPos
