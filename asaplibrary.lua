@@ -52,22 +52,30 @@ local function makeShadow(parent)
 end
 
 local function makeDraggable(frame, dragHandle)
-    local dragInput, dragStart, startPos
+    local UserInputService = game:GetService("UserInputService")
+
+    local dragging = false
+    local dragStart
+    local startPos
+
     dragHandle.InputBegan:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            dragInput = input
+            dragging = true
             dragStart = input.Position
             startPos = frame.Position
-            input.Changed:Connect(function()
-                if input.UserInputState == Enum.UserInputState.End then
-                    dragInput = nil
-                end
-            end)
         end
     end)
-    dragHandle.InputChanged:Connect(function(input)
-        if input == dragInput and input.UserInputType == Enum.UserInputType.MouseMovement then
+
+    dragHandle.InputEnded:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+            dragging = false
+        end
+    end)
+
+    UserInputService.InputChanged:Connect(function(input)
+        if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
             local delta = input.Position - dragStart
+
             frame.Position = UDim2.new(
                 startPos.X.Scale,
                 startPos.X.Offset + delta.X,
