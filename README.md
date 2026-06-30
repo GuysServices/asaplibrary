@@ -62,14 +62,13 @@ AsapUI:AddButton(HomeTab, "Hello World", function()
     print("Welcome to AsapUI!")
 end)```
 
-## 1. Simple Window Creation
+
+## 2. Multi-Tab Navigation
 Create a standard window instance with custom title formatting:
 ```lua
 local AsapUI = loadstring(game:HttpGet("https://gist.githubusercontent.com/GuysServices/55a3e3913f2eaae6b96563410d1c7652/raw/AsapUI.lua"))()
-```
 
 -- Instantiates a new menu container labeled "DEVELOPMENT"
-```lua
 local MyWindow = AsapUI.new("DEVELOPMENT")
 ```
 
