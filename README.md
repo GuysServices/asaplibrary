@@ -60,16 +60,18 @@ local Window = AsapUI.new("ASAP MENU")
 local HomeTab = Window:CreateTab("Home")
 AsapUI:AddButton(HomeTab, "Hello World", function()
     print("Welcome to AsapUI!")
-end)
+end)```
 
 ## 1. Simple Window Creation
 Create a standard window instance with custom title formatting:
 ```lua
 local AsapUI = loadstring(game:HttpGet("https://gist.githubusercontent.com/GuysServices/55a3e3913f2eaae6b96563410d1c7652/raw/AsapUI.lua"))()
+```
 
 -- Instantiates a new menu container labeled "DEVELOPMENT"
 ```lua
 local MyWindow = AsapUI.new("DEVELOPMENT")
+```
 
 ## 2. Multi-Tab Navigation
 Easily group and partition functions into dedicated category pages:
@@ -80,5 +82,5 @@ local MyWindow = AsapUI.new("CONTROL PANEL")
 local CombatPage = MyWindow:CreateTab("Combat")
 local MovementPage = MyWindow:CreateTab("Movement")
 local VisualsPage = MyWindow:CreateTab("Visuals")
-
+```
 -- The UI will automatically register tab switching animations on click
